@@ -1,0 +1,33 @@
+server.port: 8888
+
+# Configuration of a local Git-repo for development locally without Docker
+# note that we are still using git; We just access the git-repo via file: protocol
+#spring.cloud.config.server.git.uri: file:///${PWD}/../../../../blog-microservices-config/
+spring.cloud.config.server.native.searchLocations: classpath:/config
+
+eureka:
+  # Configure standalone mode, see http://cloud.spring.io/spring-cloud-netflix/spring-cloud-netflix.html#_standalone_mode
+  instance:
+    leaseRenewalIntervalInSeconds: 10
+  client:
+    registerWithEureka: true
+    fetchRegistry: true
+    serviceUrl:
+      defaultZone: http://localhost:8761/eureka/
+
+spring.rabbitmq:
+  host: localhost
+  port: 5672
+
+logging:
+  level:
+    root: INFO
+
+    org.springframework.amqp.rabbit.listener.BlockingQueueConsumer: INFO
+    org.apache.catalina.session.ManagerBase: INFO
+
+    # Set INFO to see the allocated port
+    org.springframework.boot.context.embedded.tomcat.TomcatEmbeddedServletContainer: INFO
+    org.springframework.boot.context.embedded.undertow.UndertowEmbeddedServletContainer: INFO
+
+

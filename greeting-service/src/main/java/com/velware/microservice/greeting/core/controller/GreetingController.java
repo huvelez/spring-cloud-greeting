@@ -5,7 +5,12 @@ import org.springframework.http.HttpEntity;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
+
+import java.util.ArrayList;
+import java.util.List;
+import java.util.UUID;
 
 import static org.springframework.hateoas.mvc.ControllerLinkBuilder.linkTo;
 import static org.springframework.hateoas.mvc.ControllerLinkBuilder.methodOn;
@@ -13,13 +18,20 @@ import static org.springframework.hateoas.mvc.ControllerLinkBuilder.methodOn;
 @RestController
 public class GreetingController {
 
-    @RequestMapping("/greetings")
-    public HttpEntity<GreetingResource> greetings() {
 
-        GreetingResource greeting = new GreetingResource("Hola");
-        greeting.add(linkTo(methodOn(GreetingController.class).greetings()).withSelfRel());
+    @RequestMapping(method = RequestMethod.GET, produces = "application/json")
+    public List<GreetingResource> getGreetingsInJSON() {
 
-        return new ResponseEntity<>(greeting, HttpStatus.OK);
+        List<GreetingResource> greetings = new ArrayList<>();
+
+        GreetingResource g = new GreetingResource();
+
+        g.setGuid(UUID.randomUUID().toString());
+        g.setContent("Hola");
+        greetings.add(g);
+
+        return greetings;
+
     }
 
 

@@ -7,15 +7,34 @@ import org.springframework.hateoas.ResourceSupport;
 
 public class GreetingResource extends ResourceSupport {
 
-    private final String content;
+    public GreetingResource() {
+    }
 
     @JsonCreator
-    public GreetingResource(@JsonProperty("content") String content) {
+    public GreetingResource(@JsonProperty("content") String content, @JsonProperty("guid") String guid) {
         this.content = content;
+    }
+
+    private String guid;
+    private String content;
+
+    public String getGuid() {
+        return guid;
+    }
+
+    public void setGuid(String guid) {
+        this.guid = guid;
     }
 
     public String getContent() {
         return content;
     }
+
+    public void setContent(String content) {
+        this.content = content;
+    }
+
+
+
 
 }

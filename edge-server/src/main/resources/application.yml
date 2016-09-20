@@ -1,5 +1,14 @@
+server:
+  port: 8765
+
 info:
-  component: Edge Server
+  component: edge-server
+
+zuul:
+  routes:
+    composite-service:
+      path: /**
+      url: http://localhost:8080
 
 endpoints:
   restart:
@@ -10,21 +19,29 @@ endpoints:
     sensitive: false
 
 eureka:
+  # Configure standalone mode, see http://cloud.spring.io/spring-cloud-netflix/spring-cloud-netflix.html#_standalone_mode
+  instance:
+    leaseRenewalIntervalInSeconds: 10
   client:
     registerWithEureka: true
     fetchRegistry: true
     serviceUrl:
-          defaultZone: http://localhost:8761/eureka/
-  server:
-    waitTimeInMsWhenSyncEmpty: 0
-  instance:
-    hostname: localhost
+      defaultZone: http://localhost:8761/eureka/
 
-
-server:
-  port: 8765
 
 logging:
   level:
     ROOT: INFO
-    org.springframework.web: INFO
+    gov.hrsa: INFO
+
+    # Get info regarding connection to the cofig server and retries if required
+    org.springframework.cloud.config.client.ConfigServicePropertySourceLocator: INFO
+    org.springframework.retry.support.RetryTemplate: INFO
+
+    # Set INFO to see the allocated port
+    org.springframework.boot.context.embedded.tomcat.TomcatEmbeddedServletContainer: INFO
+    org.springframework.boot.context.embedded.undertow.UndertowEmbeddedServletContainer: INFO
+
+    # Set DEBUG level on Hystrix to get an error message when a fallback method is used.
+    com.netflix.hystrix: DEBUG
+    com.netflix.hystrix.strategy.properties.HystrixPropertiesChainedArchaiusProperty: INFO

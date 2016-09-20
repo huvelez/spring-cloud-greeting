@@ -2,4 +2,5 @@ rootProject.name = 'spring-cloud-greeting'
 include 'edge-server'
 include 'discovery-server'
 include 'greeting-service'
+include 'config-server'
 

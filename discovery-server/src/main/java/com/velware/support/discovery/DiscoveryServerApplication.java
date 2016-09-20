@@ -1,4 +1,4 @@
-package com.velware.discovery;
+package com.velware.support.discovery;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
