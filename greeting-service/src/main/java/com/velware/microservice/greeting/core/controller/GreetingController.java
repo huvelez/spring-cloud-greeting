@@ -19,7 +19,7 @@ import static org.springframework.hateoas.mvc.ControllerLinkBuilder.methodOn;
 public class GreetingController {
 
 
-    @RequestMapping(method = RequestMethod.GET, produces = "application/json")
+    @RequestMapping(value = "/greetings", method = RequestMethod.GET, produces = "application/json")
     public List<GreetingResource> getGreetingsInJSON() {
 
         List<GreetingResource> greetings = new ArrayList<>();

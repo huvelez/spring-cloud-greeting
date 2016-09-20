@@ -1,13 +1,8 @@
 server:
   port: 0
-  context-path: /greeting-service
 
 info:
-  component: Greeting Service
-
-service:
-  defaultMinMs: 5
-  defaultMaxMs: 20
+  component: greeting-service
 
 logging:
   level:
@@ -22,13 +17,12 @@ logging:
 
     # Set INFO to see the allocated port
     org.springframework.boot.context.embedded.tomcat.TomcatEmbeddedServletContainer: INFO
-    org.springframework.boot.context.embedded.undertow.UndertowEmbeddedServletContainer: INFO
 
     # Set DEBUG level on Hystrix to get an error message when a fallback method is used.
     com.netflix.hystrix: DEBUG
     com.netflix.hystrix.strategy.properties.HystrixPropertiesChainedArchaiusProperty: WARN
 
-    gov.hrsa: INFO
+    com.velware: INFO
 
 spring.rabbitmq:
   host: localhost
@@ -50,6 +44,7 @@ eureka:
     leaseExpirationDurationInSeconds: 1
     metadataMap:
       instanceId: ${vcap.application.instance_id:${spring.application.name}:${spring.application.instance_id:${random.value}}}
+    instanceId: ${vcap.application.instance_id:${spring.application.name}:${spring.application.instance_id:${random.value}}}
   client:
     # Default values comes from org.springframework.cloud.netflix.eurek.EurekaClientConfigBean
     registryFetchIntervalSeconds: 1

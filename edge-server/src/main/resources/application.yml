@@ -4,12 +4,6 @@ server:
 info:
   component: edge-server
 
-#zuul:
-#  routes:
-#    composite-service:
-#      path: /**
-#      url: http://localhost:8080
-
 endpoints:
   restart:
     enabled: true
