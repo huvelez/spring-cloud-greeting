@@ -4,11 +4,11 @@ server:
 info:
   component: edge-server
 
-zuul:
-  routes:
-    composite-service:
-      path: /**
-      url: http://localhost:8080
+#zuul:
+#  routes:
+#    composite-service:
+#      path: /**
+#      url: http://localhost:8080
 
 endpoints:
   restart:
@@ -32,7 +32,7 @@ eureka:
 logging:
   level:
     ROOT: INFO
-    gov.hrsa: INFO
+    com.velware: INFO
 
     # Get info regarding connection to the cofig server and retries if required
     org.springframework.cloud.config.client.ConfigServicePropertySourceLocator: INFO
