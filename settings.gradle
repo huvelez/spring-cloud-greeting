@@ -3,4 +3,6 @@ include 'edge-server'
 include 'discovery-server'
 include 'greeting-service'
 include 'config-server'
+include 'monitor-dashboard'
+include 'turbine'
 
