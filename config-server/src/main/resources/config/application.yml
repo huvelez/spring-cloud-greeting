@@ -1,18 +1,17 @@
-info:
-  component: monitor-dashboard
-  
-endpoints:
-  restart:
-    enabled: true
-  shutdown:
-    enabled: true
+#server:
+#  port: 0
 
-server:
-  port: 7979
 
 logging:
   level:
-    ROOT: INFO
+    root: INFO
+    se.callista: INFO
+
+    # FIXME: Get rid on NPE-exceptions in SC 1.1
+    com.netflix.hystrix.contrib.javanica.command.GenericCommand: ERROR
+
+    # Get info on failed OAuth access token validations
+    org.springframework.boot.autoconfigure.security.oauth2.resource.UserInfoTokenServices: INFO
 
     # Get info regarding connection to the cofig server and retries if required
     org.springframework.cloud.config.client.ConfigServicePropertySourceLocator: INFO
@@ -21,6 +20,11 @@ logging:
     # Set INFO to see the allocated port
     org.springframework.boot.context.embedded.tomcat.TomcatEmbeddedServletContainer: INFO
     org.springframework.boot.context.embedded.undertow.UndertowEmbeddedServletContainer: INFO
+
+    # Set DEBUG level on Hystrix to get an error message when a fallback method is used.
+    com.netflix.hystrix: DEBUG
+    com.netflix.hystrix.strategy.properties.HystrixPropertiesChainedArchaiusProperty: WARN
+
 
 eureka:
   instance:
@@ -38,3 +42,6 @@ eureka:
     fetchRegistry: true
     serviceUrl:
         defaultZone: http://localhost:8761/eureka/
+
+
+

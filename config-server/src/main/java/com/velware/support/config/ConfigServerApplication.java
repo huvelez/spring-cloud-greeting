@@ -9,7 +9,7 @@ import org.springframework.cloud.config.server.EnableConfigServer;
 import org.springframework.context.ConfigurableApplicationContext;
 
 @EnableConfigServer
-//@EnableDiscoveryClient
+@EnableDiscoveryClient
 @SpringBootApplication
 public class ConfigServerApplication {
 
@@ -17,8 +17,6 @@ public class ConfigServerApplication {
 
     public static void main(String[] args) {
         ConfigurableApplicationContext ctx = SpringApplication.run(ConfigServerApplication.class, args);
-
-        LOG.info("Connected to RabbitMQ at: {}", ctx.getEnvironment().getProperty("spring.rabbitmq.host"));
     }
 
 }

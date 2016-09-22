@@ -2,7 +2,7 @@ server:
   port: 8761
 
 info:
-  component: Discovery Server
+  component: discovery-server
 
 eureka:
   # Configure standalone mode, see http://cloud.spring.io/spring-cloud-netflix/spring-cloud-netflix.html#_standalone_mode

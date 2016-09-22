@@ -7,7 +7,7 @@ info:
 logging:
   level:
     root: INFO
-
+    com.velware: INFO
     # Get info on failed OAuth access token validations
     org.springframework.boot.autoconfigure.security.oauth2.resource.UserInfoTokenServices: INFO
 
@@ -21,22 +21,6 @@ logging:
     # Set DEBUG level on Hystrix to get an error message when a fallback method is used.
     com.netflix.hystrix: DEBUG
     com.netflix.hystrix.strategy.properties.HystrixPropertiesChainedArchaiusProperty: WARN
-
-    com.velware: INFO
-
-spring.rabbitmq:
-  host: localhost
-  port: 5672
-
-ribbon:
-  # Interval to refresh the server list from the source
-  serverListRefreshInterval: 1000
-#
-#  # Connect timeout used by Apache HttpClient
-#  connectTimeout: 100
-#
-#  # Read timeout used by Apache HttpClient
-#  readTimeout: 10000
 
 eureka:
   instance:
@@ -54,3 +38,5 @@ eureka:
     fetchRegistry: true
     serviceUrl:
         defaultZone: http://localhost:8761/eureka/
+
+
