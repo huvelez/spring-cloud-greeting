@@ -1,13 +1,12 @@
-#server:
-#  port: 0
-
+spring.rabbitmq:
+  host: localhost
+  port: 5672
 
 logging:
   level:
     root: INFO
-    se.callista: INFO
+    com.velware: INFO
 
-    # FIXME: Get rid on NPE-exceptions in SC 1.1
     com.netflix.hystrix.contrib.javanica.command.GenericCommand: ERROR
 
     # Get info on failed OAuth access token validations
@@ -31,8 +30,10 @@ eureka:
     leaseRenewalIntervalInSeconds: 1
     leaseExpirationDurationInSeconds: 1
     metadataMap:
-      instanceId: ${vcap.application.instance_id:${spring.application.name}:${spring.application.instance_id:${random.value}}}
-    instanceId: ${vcap.application.instance_id:${spring.application.name}:${spring.application.instance_id:${random.value}}}
+      instanceId: ${spring.application.name}:${random.value}
+    instanceId: ${spring.application.name}:${random.value}
+          #instanceId: ${vcap.application.instance_id:${spring.application.name}:${spring.application.instance_id:${random.value}}}
+        #instanceId: ${vcap.application.instance_id:${spring.application.name}:${spring.application.instance_id:${random.value}}}
   client:
     # Default values comes from org.springframework.cloud.netflix.eurek.EurekaClientConfigBean
     registryFetchIntervalSeconds: 1

@@ -1,8 +1,9 @@
 spring:
   application:
-    name: eureka
+    name: discovery-server
   cloud:
     config:
+      enabled: true
       failFast: false
       retry:
         initialInterval: 3000
