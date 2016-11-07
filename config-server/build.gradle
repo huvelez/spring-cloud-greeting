@@ -32,11 +32,17 @@ repositories {
 }
 
 dependencies {
-    compile("org.springframework.boot:spring-boot-starter-web")
-    compile("org.springframework.boot:spring-boot-starter-actuator")
-    compile('org.springframework.cloud:spring-cloud-config-server')
-    compile("org.springframework.cloud:spring-cloud-starter-eureka")
 
+    // Compile Scope
+    compile("org.springframework.boot:spring-boot-starter-web")
+    // Enable Spring Cloud Actuator
+    compile("org.springframework.boot:spring-boot-starter-actuator")
+    // Add the configuration client
+    compile('org.springframework.cloud:spring-cloud-config-server')
+    // Add Spring Cloud BUS to propagate configuration
+    compile('org.springframework.cloud:spring-cloud-starter-bus-amqp')
+
+    // Test Scope
     testCompile("org.springframework.boot:spring-boot-starter-test")
     testCompile("junit:junit:4.11")
 }

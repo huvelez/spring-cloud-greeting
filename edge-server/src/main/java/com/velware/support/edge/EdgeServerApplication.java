@@ -2,16 +2,17 @@ package com.velware.support.edge;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.builder.SpringApplicationBuilder;
 import org.springframework.cloud.client.discovery.EnableDiscoveryClient;
 import org.springframework.cloud.netflix.zuul.EnableZuulProxy;
+import org.springframework.context.ConfigurableApplicationContext;
 import org.springframework.stereotype.Controller;
 
 import javax.net.ssl.HttpsURLConnection;
 
 @SpringBootApplication
-@Controller
 @EnableZuulProxy
 @EnableDiscoveryClient
 public class EdgeServerApplication {
@@ -26,10 +27,10 @@ public class EdgeServerApplication {
 
     public static void main(String[] args) {
 
-        LOG.info("Edge-server starting...");
-
-        new SpringApplicationBuilder(EdgeServerApplication.class).web(true).run(args);
-
-        LOG.info("Edge-server started.");
+        ConfigurableApplicationContext ctx = SpringApplication.run(EdgeServerApplication.class, args);
+        LOG.info("Application Started[{}] at Port[{}]" ,
+                ctx.getEnvironment().getProperty("spring.application.name"),
+                ctx.getEnvironment().getProperty("server.port"));
+        LOG.info("Connected to RabbitMQ at: [{}]", ctx.getEnvironment().getProperty("spring.rabbitmq.host"));
     }
 }

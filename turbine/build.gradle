@@ -38,12 +38,18 @@ repositories {
 
 
 dependencies {
+
+    // Compile Scope
     compile("org.springframework.boot:spring-boot-starter-web")
     compile("org.springframework.boot:spring-boot-starter-actuator")
+    compile("org.springframework.cloud:spring-cloud-starter-eureka")
+    compile("org.springframework.cloud:spring-cloud-starter-config")
 
+    // Enable Turbine Server using RabbitMQ
     compile('org.springframework.cloud:spring-cloud-starter-turbine-stream')
-    compile('org.springframework.cloud:spring-cloud-starter-stream-rabbit')
+    compile("org.springframework.cloud:spring-cloud-starter-stream-rabbit")
 
+    // Test Scope
     testCompile("org.springframework.boot:spring-boot-starter-test")
     testCompile("junit:junit:4.11")
 }
