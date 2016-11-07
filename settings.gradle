@@ -6,4 +6,5 @@ include 'config-server'
 include 'monitor-dashboard'
 include 'turbine'
 include 'greeter-service'
+include 'name-service'
 

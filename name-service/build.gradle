@@ -22,7 +22,7 @@ apply plugin: 'idea'
 apply plugin: 'spring-boot'
 
 jar {
-    baseName = 'turbine'
+    baseName = 'name-service'
     version = '1.0-SNAPSHOT'
 }
 
@@ -39,12 +39,19 @@ repositories {
 
 dependencies {
     compile("org.springframework.boot:spring-boot-starter-web")
+    compile("org.springframework.boot:spring-boot-starter-hateoas")
     compile("org.springframework.boot:spring-boot-starter-actuator")
+    compile("org.springframework.boot:spring-boot-starter-aop")
+    compile("org.springframework.cloud:spring-cloud-starter-config")
+    compile("org.springframework.cloud:spring-cloud-starter-eureka")
+    compile("org.springframework.cloud:spring-cloud-starter-hystrix")
+    compile("org.springframework.cloud:spring-cloud-netflix-hystrix-stream")
+    compile("org.springframework.cloud:spring-cloud-starter-feign")
 
-    compile('org.springframework.cloud:spring-cloud-starter-turbine-stream')
-    compile('org.springframework.cloud:spring-cloud-starter-stream-rabbit')
+    compile("org.springframework.cloud:spring-cloud-starter-stream-rabbit")
 
     testCompile("org.springframework.boot:spring-boot-starter-test")
+    testCompile("com.jayway.jsonpath:json-path")
     testCompile("junit:junit:4.11")
 }
 

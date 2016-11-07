@@ -4,7 +4,7 @@ version '1.0-SNAPSHOT'
 buildscript {
     ext {
         springBootVersion = '1.4.1.RELEASE'
-        springCloudVersion = 'Brixton.SR5'
+        springCloudVersion = 'Camden.SR2'
     }
     repositories {
         mavenCentral()
