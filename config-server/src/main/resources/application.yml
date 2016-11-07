@@ -1,20 +1,13 @@
 server:
   port: 9001
 
+spring:
+  rabbitmq:
+    host: localhost
+    port: 5672
+  profiles:
+    include: native
 # Configuration of a local Git-repo for development locally without Docker
 # note that we are still using git; We just access the git-repo via file: protocol
-spring.cloud.config.server.git.uri: file:///${PWD}/../..config-repository/
-#spring.cloud.config.server.native.searchLocations: classpath:/config
-
-eureka:
-  instance:
-    leaseRenewalIntervalInSeconds: 10
-    leaseExpirationDurationInSeconds: 10
-    metadataMap:
-      instanceId: ${spring.application.name}:${random.value}
-    instanceId: ${spring.application.name}:${random.value}  # Configure standalone mode, see http://cloud.spring.io/spring-cloud-netflix/spring-cloud-netflix.html#_standalone_mode
-  client:
-    registerWithEureka: true
-    fetchRegistry: true
-    serviceUrl:
-      defaultZone: http://127.0.0.1:9002/eureka/
+#spring.cloud.config.server.git.uri: file://../config-repository/
+spring.cloud.config.server.native.searchLocations: classpath:/config-repository

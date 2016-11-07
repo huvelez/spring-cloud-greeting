@@ -17,9 +17,11 @@ public class GreetingServiceApplication {
 
     public static void main(String[] args) {
         ConfigurableApplicationContext ctx = SpringApplication.run( GreetingServiceApplication.class, args);
-        LOG.info("Application Started[{}] at Port[{}]" ,
+        LOG.info("Application Started[{}] on Port[{}]" ,
                 ctx.getEnvironment().getProperty("spring.application.name"),
                 ctx.getEnvironment().getProperty("server.port"));
-        LOG.info("Connected to RabbitMQ at: [{}]", ctx.getEnvironment().getProperty("spring.rabbitmq.host"));
+        LOG.info("Connected to RabbitMQ at: [{}] on Port[{}]",
+                ctx.getEnvironment().getProperty("spring.rabbitmq.host"),
+                ctx.getEnvironment().getProperty("spring.rabbitmq.port"));
     }
 }

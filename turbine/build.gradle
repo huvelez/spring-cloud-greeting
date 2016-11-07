@@ -41,8 +41,14 @@ dependencies {
 
     // Compile Scope
     compile("org.springframework.boot:spring-boot-starter-web")
+
+    //Enable Spring Boot Actuator
     compile("org.springframework.boot:spring-boot-starter-actuator")
+
+    // Enable Discovery Client
     compile("org.springframework.cloud:spring-cloud-starter-eureka")
+
+    // Enable Configuration Client
     compile("org.springframework.cloud:spring-cloud-starter-config")
 
     // Enable Turbine Server using RabbitMQ

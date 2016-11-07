@@ -40,13 +40,17 @@ dependencies {
     // Compile Scope
     compile("org.springframework.boot:spring-boot-starter-web")
     compile("org.springframework.boot:spring-boot-starter-actuator")
+
+    // Enable Discover Client
     compile("org.springframework.cloud:spring-cloud-starter-eureka")
+
+    // Enable Cloud Configuration
     compile("org.springframework.cloud:spring-cloud-starter-config")
     compile('org.springframework.cloud:spring-cloud-starter-bus-amqp')
 
     // Enable Turbine Using - Rabbit
     compile("org.springframework.cloud:spring-cloud-starter-hystrix")
-    compile("org.springframework.cloud:spring-cloud-starter-hystrix-stream")
+    compile("org.springframework.cloud:spring-cloud-netflix-hystrix-stream")
     compile("org.springframework.cloud:spring-cloud-starter-stream-rabbit")
 
     // Enable Eureka Discovery Server
