@@ -26,6 +26,11 @@ public class GuestGreetingResource extends ResourceSupport {
         this.guestGreeting = guestGreeting;
     }
 
+    public GuestGreetingResource(String guestName, String guestGreeting) {
+        this.guestName = guestName;
+        this.guestGreeting = guestGreeting;
+    }
+
     @Override
     public String toString() {
         return "GuestGreetingResource{" +

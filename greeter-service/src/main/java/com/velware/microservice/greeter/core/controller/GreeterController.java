@@ -21,7 +21,7 @@ public class GreeterController {
         this.greeterService = greeterService;
     }
 
-    @RequestMapping(value = "/greeter", produces = "application/json",method = RequestMethod.GET)
+    @RequestMapping(value = "/greet", produces = "application/hal+json",method = RequestMethod.GET)
     public GuestGreetingResource greetGuest(@RequestParam("name") String name){
         return greeterService.greetGuest(name);
     }

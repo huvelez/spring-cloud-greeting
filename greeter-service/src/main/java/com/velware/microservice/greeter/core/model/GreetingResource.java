@@ -1,4 +1,4 @@
-package com.velware.microservice.greeting.core.model;
+package com.velware.microservice.greeter.core.model;
 
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonProperty;

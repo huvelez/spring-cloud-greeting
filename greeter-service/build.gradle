@@ -3,8 +3,8 @@ version '1.0-SNAPSHOT'
 
 buildscript {
     ext {
-        springBootVersion = '1.4.3.RELEASE'
-        springCloudVersion = 'Camden.SR4'
+        springBootVersion = '1.4.2.RELEASE'
+        springCloudVersion = 'Brixton.SR7'
     }
     repositories {
         mavenCentral()
@@ -43,17 +43,16 @@ dependencies {
     compile("org.springframework.boot:spring-boot-starter-hateoas")
     compile("org.springframework.boot:spring-boot-starter-actuator")
     compile("org.springframework.boot:spring-boot-starter-aop")
+
     // Enable Cloud Configuration
     compile("org.springframework.cloud:spring-cloud-starter-config")
+    compile('org.springframework.cloud:spring-cloud-starter-bus-amqp')
     // Enable Cloud Discovery
     compile("org.springframework.cloud:spring-cloud-starter-eureka")
-    // Enable Client Side Load Balancing
-    compile("org.springframework.cloud:spring-cloud-starter-ribbon")
-    // Enable Circuit Breaking
+
+    // Enable Turbine Server using RabbitMQ
     compile("org.springframework.cloud:spring-cloud-starter-hystrix")
     compile("org.springframework.cloud:spring-cloud-netflix-hystrix-stream")
-    compile("org.springframework.cloud:spring-cloud-starter-feign")
-
     compile("org.springframework.cloud:spring-cloud-starter-stream-rabbit")
 
     testCompile("org.springframework.boot:spring-boot-starter-test")

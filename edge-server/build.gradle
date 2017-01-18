@@ -3,8 +3,8 @@ version '1.0-SNAPSHOT'
 
 buildscript {
     ext {
-        springBootVersion = '1.4.3.RELEASE'
-        springCloudVersion = 'Camden.SR4'
+        springBootVersion = '1.4.2.RELEASE'
+        springCloudVersion = 'Brixton.SR7'
     }
     repositories {
         mavenCentral()
@@ -49,16 +49,12 @@ dependencies {
     compile("org.springframework.cloud:spring-cloud-starter-config")
     compile('org.springframework.cloud:spring-cloud-starter-bus-amqp')
 
-    // Enable Ribbon Load Balancing
-    compile("org.springframework.cloud:spring-cloud-starter-ribbon")
+    // Enable Zuul Proxy Server
+    compile("org.springframework.cloud:spring-cloud-starter-zuul")
 
-    // Enable Hystrix
     compile("org.springframework.cloud:spring-cloud-starter-hystrix")
     compile("org.springframework.cloud:spring-cloud-netflix-hystrix-stream")
     compile("org.springframework.cloud:spring-cloud-starter-stream-rabbit")
-
-    // Enable Zuul Proxy Server
-    compile("org.springframework.cloud:spring-cloud-starter-zuul")
 
     testCompile("org.springframework.boot:spring-boot-starter-test")
     testCompile("junit:junit:4.11")
