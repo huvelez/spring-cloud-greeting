@@ -1,6 +1,6 @@
 spring:
   application:
-    name: edge-server
+    name: edgeserver
   cloud:
     config:
       enabled: true
@@ -11,9 +11,9 @@ spring:
         maxInterval: 5000
         maxAttempts: 20
       discovery:
-        serviceId: config-server
+        serviceId: configserver
         enabled: false
-      uri: http://127.0.0.1:9001
+      uri: http://localhost:9001
 
 
       

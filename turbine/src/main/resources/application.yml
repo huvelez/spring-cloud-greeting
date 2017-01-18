@@ -9,41 +9,4 @@ info:
 
 PREFIX:
 
-endpoints:
-  restart:
-    enabled: true
-  shutdown:
-    enabled: true
 
-logging:
-  level:
-    root: INFO
-    com.netflix.discovery: INFO
-
-    # Get info regarding connection to the cofig server and retries if required
-    org.springframework.cloud.config.client.ConfigServicePropertySourceLocator: INFO
-    org.springframework.retry.support.RetryTemplate: DEBUG
-
-    # org.springframework.integration: DEBUG
-
-    # Set INFO to see the allocated port
-    org.springframework.boot.context.embedded.tomcat.TomcatEmbeddedServletContainer: INFO
-    org.springframework.boot.context.embedded.undertow.UndertowEmbeddedServletContainer: INFO
-
-eureka:
-  instance:
-    leaseRenewalIntervalInSeconds: 10
-    leaseExpirationDurationInSeconds: 10
-    metadataMap:
-      instanceId: ${spring.application.name}:${random.value}
-    instanceId: ${spring.application.name}:${random.value}  # Configure standalone mode, see http://cloud.spring.io/spring-cloud-netflix/spring-cloud-netflix.html#_standalone_mode
-  client:
-    registerWithEureka: true
-    fetchRegistry: true
-    serviceUrl:
-      defaultZone: http://127.0.0.1:9002/eureka/
-
-
-spring.rabbitmq:
-  host: localhost
-  port: 5672

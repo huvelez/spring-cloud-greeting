@@ -2,13 +2,13 @@ server:
   port: 9002
 
 info:
-  component: discovery-server
+  component: eureka
 
 eureka:
   # Configure standalone mode, see http://cloud.spring.io/spring-cloud-netflix/spring-cloud-netflix.html#_standalone_mode
   client:
     registerWithEureka: false
-    fetchRegistry: false
+    fetchRegistry: true
     serviceUrl:
       defaultZone: http://127.0.0.1:9002/eureka/
   instance:

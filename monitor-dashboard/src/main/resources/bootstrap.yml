@@ -1,6 +1,6 @@
 spring:
   application:
-    name: monitor-dashboard
+    name: dashboard
   cloud:
     config:
       failFast: true
@@ -10,7 +10,7 @@ spring:
         maxInterval: 5000
         maxAttempts: 20
       discovery:
-        serviceId: config-server
+        serviceId: configserver
         enabled: false
       uri: http://localhost:9001
 

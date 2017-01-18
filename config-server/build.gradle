@@ -3,8 +3,8 @@ version '1.0-SNAPSHOT'
 
 buildscript {
     ext {
-        springBootVersion = '1.4.1.RELEASE'
-        springCloudVersion = 'Camden.SR2'
+        springBootVersion = '1.4.3.RELEASE'
+        springCloudVersion = 'Camden.SR4'
     }
     repositories {
         mavenCentral()
@@ -39,6 +39,8 @@ dependencies {
     compile("org.springframework.boot:spring-boot-starter-actuator")
     // Add the configuration client
     compile('org.springframework.cloud:spring-cloud-config-server')
+    // Add Eureka Discover Client
+    compile('org.springframework.cloud:spring-cloud-starter-eureka')
     // Add Spring Cloud BUS to propagate configuration
     compile('org.springframework.cloud:spring-cloud-starter-bus-amqp')
 

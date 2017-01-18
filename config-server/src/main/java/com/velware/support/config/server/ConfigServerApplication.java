@@ -1,4 +1,4 @@
-package com.velware.support.config;
+package com.velware.support.config.server;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -10,6 +10,7 @@ import org.springframework.context.ConfigurableApplicationContext;
 
 @EnableConfigServer
 @SpringBootApplication
+@EnableDiscoveryClient
 public class ConfigServerApplication {
 
     private static final Logger LOG = LoggerFactory.getLogger(ConfigServerApplication.class);
