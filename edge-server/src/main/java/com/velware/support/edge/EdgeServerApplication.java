@@ -17,7 +17,7 @@ import javax.net.ssl.HttpsURLConnection;
 @SpringBootApplication
 @EnableZuulProxy
 @EnableDiscoveryClient
-@EnableCircuitBreaker
+@EnableHystrix
 public class EdgeServerApplication {
 
     private static final Logger LOG = LoggerFactory.getLogger(EdgeServerApplication.class);

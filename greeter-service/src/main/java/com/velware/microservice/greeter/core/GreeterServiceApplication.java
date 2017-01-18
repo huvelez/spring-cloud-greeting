@@ -19,7 +19,7 @@ import org.springframework.web.client.RestTemplate;
 
 @SpringBootApplication
 @EnableDiscoveryClient
-@EnableCircuitBreaker
+@EnableHystrix
 public class GreeterServiceApplication {
 
     private static final Logger LOG = LoggerFactory.getLogger(GreeterServiceApplication.class);

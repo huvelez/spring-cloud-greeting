@@ -11,6 +11,7 @@ import org.springframework.context.ConfigurableApplicationContext;
 
 @SpringBootApplication
 @EnableDiscoveryClient
+@EnableHystrix
 public class GreetingServiceApplication {
 
     private static final Logger LOG = LoggerFactory.getLogger(GreetingServiceApplication.class);

@@ -12,6 +12,7 @@ import org.springframework.context.annotation.ComponentScan;
 
 @SpringBootApplication
 @EnableDiscoveryClient
+@EnableHystrix
 public class ProfileServiceApplication {
     private static final Logger LOG = LoggerFactory.getLogger(ProfileServiceApplication.class);
 
