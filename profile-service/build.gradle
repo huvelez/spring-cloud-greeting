@@ -42,12 +42,12 @@ dependencies {
     compile("org.springframework.boot:spring-boot-starter-hateoas")
     compile("org.springframework.boot:spring-boot-starter-actuator")
     compile("org.springframework.boot:spring-boot-starter-aop")
+
     compile("org.springframework.cloud:spring-cloud-starter-config")
     compile("org.springframework.cloud:spring-cloud-starter-eureka")
+    // Enable Turbine Using - Rabbit
     compile("org.springframework.cloud:spring-cloud-starter-hystrix")
     compile("org.springframework.cloud:spring-cloud-netflix-hystrix-stream")
-    compile("org.springframework.cloud:spring-cloud-starter-feign")
-
     compile("org.springframework.cloud:spring-cloud-starter-stream-rabbit")
 
     testCompile("org.springframework.boot:spring-boot-starter-test")

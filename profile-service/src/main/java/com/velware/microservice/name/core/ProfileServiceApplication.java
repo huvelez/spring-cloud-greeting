@@ -7,15 +7,17 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.cloud.client.circuitbreaker.EnableCircuitBreaker;
 import org.springframework.cloud.client.discovery.EnableDiscoveryClient;
 import org.springframework.context.ConfigurableApplicationContext;
+import org.springframework.context.annotation.ComponentScan;
 
 @SpringBootApplication
 @EnableDiscoveryClient
 @EnableCircuitBreaker
-public class NameServiceApplication {
-    private static final Logger LOG = LoggerFactory.getLogger(NameServiceApplication.class);
+@ComponentScan
+public class ProfileServiceApplication {
+    private static final Logger LOG = LoggerFactory.getLogger(ProfileServiceApplication.class);
 
     public static void main(String[] args) {
-        ConfigurableApplicationContext ctx = SpringApplication.run( NameServiceApplication.class, args);
+        ConfigurableApplicationContext ctx = SpringApplication.run( ProfileServiceApplication.class, args);
 
     }
 }
