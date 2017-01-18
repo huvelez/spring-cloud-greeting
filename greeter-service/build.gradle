@@ -3,8 +3,8 @@ version '1.0-SNAPSHOT'
 
 buildscript {
     ext {
-        springBootVersion = '1.4.1.RELEASE'
-        springCloudVersion = 'Camden.SR2'
+        springBootVersion = '1.4.3.RELEASE'
+        springCloudVersion = 'Camden.SR4'
     }
     repositories {
         mavenCentral()
@@ -37,12 +37,19 @@ repositories {
 }
 
 dependencies {
+
+    // Enable Spring Boot Web Application
     compile("org.springframework.boot:spring-boot-starter-web")
     compile("org.springframework.boot:spring-boot-starter-hateoas")
     compile("org.springframework.boot:spring-boot-starter-actuator")
     compile("org.springframework.boot:spring-boot-starter-aop")
+    // Enable Cloud Configuration
     compile("org.springframework.cloud:spring-cloud-starter-config")
+    // Enable Cloud Discovery
     compile("org.springframework.cloud:spring-cloud-starter-eureka")
+    // Enable Client Side Load Balancing
+    compile("org.springframework.cloud:spring-cloud-starter-ribbon")
+    // Enable Circuit Breaking
     compile("org.springframework.cloud:spring-cloud-starter-hystrix")
     compile("org.springframework.cloud:spring-cloud-netflix-hystrix-stream")
     compile("org.springframework.cloud:spring-cloud-starter-feign")

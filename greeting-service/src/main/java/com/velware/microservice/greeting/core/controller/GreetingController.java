@@ -19,12 +19,6 @@ public class GreetingController {
     @Autowired
     private GreetingService greetingService;
 
-    @Bean
-    public RestTemplate rest(RestTemplateBuilder builder) {
-        return builder.build();
-    }
-
-
     @RequestMapping(value = "/greetings", method = RequestMethod.GET, produces = "application/json")
     public List<GreetingResource> getGreetingsInJSON() {
 
