@@ -4,7 +4,7 @@ version '1.0-SNAPSHOT'
 buildscript {
     ext {
         springBootVersion = '1.4.2.RELEASE'
-        springCloudVersion = 'Brixton.SR7'
+        springCloudVersion = 'Camden.SR4'
     }
     repositories {
         mavenCentral()
@@ -51,8 +51,6 @@ dependencies {
 
     // Enable Hystrix
     compile("org.springframework.cloud:spring-cloud-starter-hystrix")
-    compile("org.springframework.cloud:spring-cloud-netflix-hystrix-stream")
-    compile("org.springframework.cloud:spring-cloud-starter-stream-rabbit")
 
     testCompile("org.springframework.boot:spring-boot-starter-test")
     testCompile("com.jayway.jsonpath:json-path")

@@ -27,12 +27,12 @@ public class GreeterServiceImpl implements GreeterService {
     public GuestGreetingResource greetGuest(String name) {
 
         ProfileResource guest = this.findGuest(name);
-        GreetingResource greeting = this.findGreeting(guest.getLanguage().name());
+        GreetingResource greeting = this.findGreeting(guest);
         return new GuestGreetingResource(guest.getName(),greeting.getContent());
     }
 
-    @HystrixCommand
-    private ProfileResource findGuest(String name) {
+    @HystrixCommand(commandKey = "findGuest", groupKey = "greeter", fallbackMethod = "noProfileResource")
+    public ProfileResource findGuest(String name) {
         String url = "http://profileservice/profiles";
 
         // Query parameters
@@ -45,18 +45,27 @@ public class GreeterServiceImpl implements GreeterService {
         return responseEntity.getBody();
     }
 
-    @HystrixCommand
-    private GreetingResource findGreeting(String language) {
+    public ProfileResource noProfileResource(String name){
+        return null;
+    }
+
+    @HystrixCommand(commandKey = "findGreeting", groupKey = "greeter", fallbackMethod = "noGreetingResource")
+    public GreetingResource findGreeting(ProfileResource guest) {
         String url = "http://greetingservice/greetings";
 
         // Query parameters
         UriComponentsBuilder builder = UriComponentsBuilder.fromUriString(url)
                 // Add query parameter
-                .queryParam("language", language);
+                .queryParam("language", guest.getLanguage().name());
 
         ResponseEntity<GreetingResource> responseEntity = restTemplate.getForEntity(builder.toUriString(), GreetingResource.class);
 
         return responseEntity.getBody();
+    }
+
+
+    public GreetingResource noGreetingResource(ProfileResource guest){
+        return null;
     }
 
 }

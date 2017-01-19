@@ -7,6 +7,9 @@ management:
 info:
   component: turbine
 
-PREFIX:
+turbine:
+  appConfig: greetingservice,greeterservice,profileservice,edgeserver
+  clusterNameExpression: new String('default')
+
 
 

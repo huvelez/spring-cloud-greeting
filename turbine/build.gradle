@@ -4,7 +4,7 @@ version '1.0-SNAPSHOT'
 buildscript {
     ext {
         springBootVersion = '1.4.2.RELEASE'
-        springCloudVersion = 'Brixton.SR7'
+        springCloudVersion = 'Camden.SR4'
     }
     repositories {
         mavenCentral()
@@ -45,16 +45,15 @@ dependencies {
     //Enable Spring Boot Actuator
     compile("org.springframework.boot:spring-boot-starter-actuator")
 
-    // Enable Discovery Client
-    compile("org.springframework.cloud:spring-cloud-starter-eureka")
-
     // Enable Configuration Client
     compile("org.springframework.cloud:spring-cloud-starter-config")
     compile('org.springframework.cloud:spring-cloud-starter-bus-amqp')
 
+    // Enable Cloud Discovery
+    compile("org.springframework.cloud:spring-cloud-starter-eureka")
+
     // Enable Turbine Server using RabbitMQ
-    compile('org.springframework.cloud:spring-cloud-netflix-turbine-stream')
-    compile('org.springframework.cloud:spring-cloud-starter-stream-rabbit')
+    compile('org.springframework.cloud:spring-cloud-netflix-turbine')
 
     // Test Scope
     testCompile("org.springframework.boot:spring-boot-starter-test")

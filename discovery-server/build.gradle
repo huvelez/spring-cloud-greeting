@@ -4,7 +4,7 @@ version '1.0-SNAPSHOT'
 buildscript {
     ext {
         springBootVersion = '1.4.2.RELEASE'
-        springCloudVersion = 'Brixton.SR7'
+        springCloudVersion = 'Camden.SR4'
     }
     repositories {
         mavenCentral()
@@ -40,7 +40,6 @@ dependencies {
     // Compile Scope
     compile("org.springframework.boot:spring-boot-starter-web")
     compile("org.springframework.boot:spring-boot-starter-actuator")
-    compile("org.springframework.boot:spring-boot-starter-amqp")
     // Enable Discover Client
     compile("org.springframework.cloud:spring-cloud-starter-eureka")
 
@@ -50,7 +49,6 @@ dependencies {
 
     // Enable Eureka Discovery Server
     compile("org.springframework.cloud:spring-cloud-starter-eureka-server")
-
 
     // Test Scope
     testCompile("org.springframework.boot:spring-boot-starter-test")
