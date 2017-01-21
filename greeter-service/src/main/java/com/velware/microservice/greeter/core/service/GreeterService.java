@@ -10,7 +10,6 @@ import com.velware.microservice.greeter.core.model.ProfileResource;
 public interface GreeterService {
 
 
-    public GuestGreetingResource greetGuest(String name);
     public ProfileResource findGuest(String name);
     public ProfileResource noProfileResource(String name);
     public GreetingResource findGreeting(ProfileResource guest);

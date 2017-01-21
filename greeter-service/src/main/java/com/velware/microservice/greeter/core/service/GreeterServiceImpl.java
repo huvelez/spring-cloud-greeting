@@ -24,14 +24,8 @@ public class GreeterServiceImpl implements GreeterService {
         this.restTemplate = restTemplate;
     }
 
-    public GuestGreetingResource greetGuest(String name) {
 
-        ProfileResource guest = this.findGuest(name);
-        GreetingResource greeting = this.findGreeting(guest);
-        return new GuestGreetingResource(guest.getName(),greeting.getContent());
-    }
-
-    @HystrixCommand
+    @HystrixCommand(fallbackMethod = "noProfileResource")
     public ProfileResource findGuest(String name) {
         String url = "http://profileservice/profiles";
 
@@ -45,11 +39,13 @@ public class GreeterServiceImpl implements GreeterService {
         return responseEntity.getBody();
     }
 
+
     public ProfileResource noProfileResource(String name){
         return null;
     }
 
-    @HystrixCommand
+
+    @HystrixCommand(fallbackMethod = "noGreetingResource")
     public GreetingResource findGreeting(ProfileResource guest) {
         String url = "http://greetingservice/greetings";
 
@@ -65,7 +61,7 @@ public class GreeterServiceImpl implements GreeterService {
 
 
     public GreetingResource noGreetingResource(ProfileResource guest){
-        return null;
+        return new GreetingResource();
     }
 
 }
