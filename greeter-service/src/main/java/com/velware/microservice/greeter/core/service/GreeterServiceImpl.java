@@ -31,7 +31,7 @@ public class GreeterServiceImpl implements GreeterService {
         return new GuestGreetingResource(guest.getName(),greeting.getContent());
     }
 
-    @HystrixCommand(commandKey = "findGuest", groupKey = "greeter", fallbackMethod = "noProfileResource")
+    @HystrixCommand
     public ProfileResource findGuest(String name) {
         String url = "http://profileservice/profiles";
 
@@ -49,7 +49,7 @@ public class GreeterServiceImpl implements GreeterService {
         return null;
     }
 
-    @HystrixCommand(commandKey = "findGreeting", groupKey = "greeter", fallbackMethod = "noGreetingResource")
+    @HystrixCommand
     public GreetingResource findGreeting(ProfileResource guest) {
         String url = "http://greetingservice/greetings";
 

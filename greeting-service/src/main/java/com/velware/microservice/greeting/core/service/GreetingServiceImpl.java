@@ -1,6 +1,7 @@
 package com.velware.microservice.greeting.core.service;
 
 
+import com.netflix.hystrix.contrib.javanica.annotation.HystrixCommand;
 import com.velware.microservice.greeting.core.model.GreetingLanguage;
 import com.velware.microservice.greeting.core.model.GreetingResource;
 import org.springframework.stereotype.Service;
@@ -32,6 +33,7 @@ public class GreetingServiceImpl implements GreetingService{
     }
 
     @Override
+    @HystrixCommand
     public GreetingResource findGreetingByLanguage(GreetingLanguage language) {
 
         for (GreetingResource greetingResource : greetingResources) {

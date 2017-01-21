@@ -1,5 +1,6 @@
 package com.velware.microservice.name.core.service;
 
+import com.netflix.hystrix.contrib.javanica.annotation.HystrixCommand;
 import com.velware.microservice.name.core.model.ProfileLanguage;
 import com.velware.microservice.name.core.model.ProfileResource;
 import org.springframework.stereotype.Service;
@@ -33,6 +34,7 @@ public class ProfileServiceImpl implements ProfileService {
     }
 
     @Override
+    @HystrixCommand
     public ProfileResource getProfileByName(String name) {
 
         for (ProfileResource profileResource : profileResources) {

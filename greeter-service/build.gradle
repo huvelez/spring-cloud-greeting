@@ -49,10 +49,15 @@ dependencies {
     compile('org.springframework.cloud:spring-cloud-starter-bus-amqp')
     // Enable Cloud Discovery
     compile("org.springframework.cloud:spring-cloud-starter-eureka")
-
-    // Enable Turbine Server using RabbitMQ
+    // Enable Ribbon
+    compile("org.springframework.cloud:spring-cloud-starter-ribbon")
+    // Enable Hystrix
     compile("org.springframework.cloud:spring-cloud-starter-hystrix")
+    // Enable Turbine Stream
+    compile("org.springframework.cloud:spring-cloud-netflix-hystrix-stream")
+    compile("org.springframework.cloud:spring-cloud-starter-stream-rabbit")
 
+    // Testing
     testCompile("org.springframework.boot:spring-boot-starter-test")
     testCompile("com.jayway.jsonpath:json-path")
     testCompile("junit:junit:4.11")

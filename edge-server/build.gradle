@@ -52,7 +52,13 @@ dependencies {
     // Enable Zuul Proxy Server
     compile("org.springframework.cloud:spring-cloud-starter-zuul")
 
+    // Enable Hystrix
     compile("org.springframework.cloud:spring-cloud-starter-hystrix")
+    // Enable Turbine Stream
+    compile("org.springframework.cloud:spring-cloud-netflix-hystrix-stream")
+    compile("org.springframework.cloud:spring-cloud-starter-stream-rabbit")
+    // Enable Ribbon
+    compile("org.springframework.cloud:spring-cloud-starter-ribbon")
 
     testCompile("org.springframework.boot:spring-boot-starter-test")
     testCompile("junit:junit:4.11")

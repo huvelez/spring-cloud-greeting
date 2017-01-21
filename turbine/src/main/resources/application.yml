@@ -9,7 +9,8 @@ info:
 
 turbine:
   appConfig: greetingservice,greeterservice,profileservice,edgeserver
-  clusterNameExpression: new String('default')
+  clusterNameExpression: new String("default")
+  combineHostPort: true
 
 
 
