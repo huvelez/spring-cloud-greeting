@@ -1,45 +1,26 @@
 server:
-  port: 9002
+  port: 9010
+#  ssl:
+#    key-store: classpath:server.jks
+#    key-store-password: letmein
+#    key-password: changeme
+#    key-alias: velware-dev-key
+  contextPath: /uaa
 
 info:
-  component: discovery-server
+  component: authserver
 
-eureka:
-  # Configure standalone mode, see http://cloud.spring.io/spring-cloud-netflix/spring-cloud-netflix.html#_standalone_mode
-  client:
-    registerWithEureka: false
-    fetchRegistry: false
-    serviceUrl:
-      defaultZone: http://127.0.0.1:9002/eureka/
-  instance:
-    hostname: localhost
-    preferIpAddress: true
-    leaseRenewalIntervalInSeconds: 10
-    metadataMap:
-      instanceId: ${spring.application.name}:${random.value}
-    instanceId: ${spring.application.name}:${random.value}
-  server:
-    # Disable self-preservation during development, see https://github.com/Netflix/eureka/wiki/Understanding-Eureka-Peer-to-Peer-Communication
-    enableSelfPreservation: false
-    # renewalPercentThreshold: 0.49
-    # renewalThresholdUpdateIntervalMs
-
-    # Set this only for this sample service without which starting the instance will by default wait for the default of 5 mins
-    waitTimeInMsWhenSyncEmpty: 0
-
-    # for the example, set this to zero as we will not have peers to sync up with.
-    # Do not set in a real environment with multi-node eureka clusters.
-    numberRegistrySyncRetries: 0
-
-    response-cache-update-interval-ms: 1000
-
-spring.rabbitmq:
-  host: localhost
-  port: 5672
+security:
+  user:
+    password: password
+#  oauth2:
+#    client:
+#      clientId: velware
+#      clientSecret: velwareSecret
+#      authorized-grant-types: authorization_code,refresh_token,implicit,password,client_credentials
+#      scope: webshop
+#      id: velware
 
 logging:
   level:
-    root: INFO
-
-    # Set INFO to see the allocated port
-    org.springframework.boot.context.embedded.tomcat.TomcatEmbeddedServletContainer: INFO
+    org.springframework.security: DEBUG

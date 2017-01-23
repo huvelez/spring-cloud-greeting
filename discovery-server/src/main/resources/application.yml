@@ -43,3 +43,11 @@ logging:
 
     # Set INFO to see the allocated port
     org.springframework.boot.context.embedded.tomcat.TomcatEmbeddedServletContainer: INFO
+
+# Only for demo purposes
+#encrypt:
+#  keyStore:
+#    location: classpath:/server.jks
+#    password: letmein
+#    alias: velware-dev-key
+#    secret: changeme

@@ -1,2 +1,10 @@
 server:
   port: 0
+
+# Only for demo purposes
+#encrypt:
+#  keyStore:
+#    location: classpath:/server.jks
+#    password: letmein
+#    alias: velware-dev-key
+#    secret: changeme

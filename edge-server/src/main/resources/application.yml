@@ -1,5 +1,21 @@
 server:
   port: 9000
-
+#  ssl:
+#      key-store: classpath:server.jks
+#      key-store-password: letmein
+#      key-password: changeme
+#      key-alias: velware-dev-key
+      # Problem with trust-store properties?
+      #
+      # Instead use: java -Djavax.net.debug=ssl -Djavax.net.ssl.trustStore=src/main/resources/truststore.jks -Djavax.net.ssl.trustStorePassword=password -jar build/libs/*.jar
+      #
+      # trust-store: classpath:truststore.jks
 info:
   component: edgeserver
+
+#security:
+#  oauth2:
+#    resource:
+#      userInfoUri: https://auth:9010/uaa/user
+
+

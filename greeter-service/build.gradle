@@ -57,6 +57,10 @@ dependencies {
     compile("org.springframework.cloud:spring-cloud-netflix-hystrix-stream")
     compile("org.springframework.cloud:spring-cloud-starter-stream-rabbit")
 
+    // Enable OAuth2
+//    compile("org.springframework.cloud:spring-cloud-starter-oauth2")
+//    compile("org.springframework.cloud:spring-cloud-starter-security")
+
     // Testing
     testCompile("org.springframework.boot:spring-boot-starter-test")
     testCompile("com.jayway.jsonpath:json-path")

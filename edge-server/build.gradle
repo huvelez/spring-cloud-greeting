@@ -60,6 +60,9 @@ dependencies {
     // Enable Ribbon
     compile("org.springframework.cloud:spring-cloud-starter-ribbon")
 
+//    compile("org.springframework.cloud:spring-cloud-starter-oauth2")
+//    compile("org.springframework.cloud:spring-cloud-starter-security")
+
     testCompile("org.springframework.boot:spring-boot-starter-test")
     testCompile("junit:junit:4.11")
 }
