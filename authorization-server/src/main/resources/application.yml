@@ -10,9 +10,9 @@ server:
 info:
   component: authserver
 
-security:
-  user:
-    password: password
+#security:
+#  user:
+#    password: password
 #  oauth2:
 #    client:
 #      clientId: velware
